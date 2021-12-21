@@ -6,11 +6,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+startPage.jsp
+<br/>
 <form action="create">
 	작성자 : <input type="text" name="writer" value="${dto.writer}"> <br />
 	내용 : <input type="text" name="content" value="${dto.content}"> <br />
 	<input type="submit" value="전송"> <br />
-	${message}
+	${msg}
 </form>
 </body>
 </html>
