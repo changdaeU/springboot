@@ -20,4 +20,39 @@
 	<select id="getCount" resultType="_int">
 		select count(*) from reply where boardnum=#{param1}
 	</select>
+	
+	<insert id="insertBoard" parameterType="com.ezen.spb16.dto.BoardVO">
+		insert into board(num, userid, pass, email, title, content, imgfilename)
+		values(board_seq.nextVal, #{userid}, #{pass}, #{email}, #{title}, #{content}, #{imgfilename})		
+	</insert>
+	
+	<update id="plusReadCount" >
+		update board set readcount = readcount + 1 where num = #{param1} 
+	</update>
+	
+	<select id="getBoard" resultType="com.ezen.spb16.dto.BoardVO">
+		select * from board where num = #{param1}
+	</select>
+	
+	<select id="selectReply" resultType="com.ezen.spb16.dto.ReplyVO">
+		select * from reply where boardnum=#{num} order by num desc
+	</select>
+	
+	<insert id = "addReply" parameterType="com.ezen.spb16.dto.ReplyVO">
+		insert into reply(num, boardnum, userid, content) 
+		values(reply_seq.nextVal,#{boardnum}, #{userid}, #{content})
+	</insert>
+	
+	<delete id="deleteReply">
+		delete from reply where num = #{param1}
+	</delete>
+	
+	<update id="updateBoard" parameterType="com.ezen.spb16.dto.BoardVO">
+		update board set pass=#{pass}, email=#{email}, title=#{title}, content=#{content}, 
+		imgfilename=#{imgfilename} where num=#{num}
+	</update>
+	
+	<delete id="boardDelete">
+		delete from board where num = #{param1}
+	</delete>
 </mapper>

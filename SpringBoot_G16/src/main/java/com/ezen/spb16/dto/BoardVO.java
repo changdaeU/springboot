@@ -1,6 +1,6 @@
 package com.ezen.spb16.dto;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -21,4 +21,5 @@ public class BoardVO {
 	private int readcount;
 	private Timestamp writedate;
 	private int replycnt;
+	private String imgfilename;
 }
