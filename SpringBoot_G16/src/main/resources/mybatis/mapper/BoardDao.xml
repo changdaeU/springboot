@@ -55,4 +55,8 @@
 	<delete id="boardDelete">
 		delete from board where num = #{param1}
 	</delete>
+	
+	<delete id="replyDelete">
+		delete from reply where boardnum=#{param1}
+	</delete>
 </mapper>

@@ -71,6 +71,7 @@ public class BoardService {
 
 	public void boardDelete(int num) {
 		bdao.boardDelete(num);
+		bdao.replyDelete(num);
 		
 	}
 }

@@ -35,5 +35,7 @@ public interface IBoardDao {
 	void updateBoard(@Valid BoardVO boardvo);
 
 	void boardDelete(int num);
+
+	void replyDelete(int num);
 	
 }

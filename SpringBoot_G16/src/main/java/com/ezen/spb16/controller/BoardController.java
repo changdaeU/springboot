@@ -244,7 +244,7 @@ public class BoardController {
 	}
 	@RequestMapping("/boardDeleteForm")
 	public String boardDeleteForm(@RequestParam("num") int num,
-			Model model) {
+			Model model, HttpServletRequest request) {
 		
 		model.addAttribute("num", num);
 		return "board/boardCheckPassForm";

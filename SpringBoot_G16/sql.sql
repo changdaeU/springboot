@@ -23,4 +23,5 @@ values('hong4', '1234', '홍길북', '010', '4444', '5555', 'hong4@naver.com');
 select * from BOARD
 select * from reply
 
-
+select * from qna
+delete from board where num = 145 ; delete from reply where boardnum=145;
