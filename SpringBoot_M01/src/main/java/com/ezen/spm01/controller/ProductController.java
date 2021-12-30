@@ -15,7 +15,7 @@ public class ProductController {
 	@Autowired
 	ProductService ps;
 	
-	@RequestMapping("/")
+	@RequestMapping("/main")
 	public ModelAndView index(Model model) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("newProductList", ps.getNewList());

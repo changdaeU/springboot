@@ -4,5 +4,26 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ezen.spm01.dao.IAdminDao">
-
+	<select id="workerCheck" resultType="string">
+		select pwd from worker where id=#{param1}
+	</select>
+	
+	<select id="listProduct" resultType="com.ezen.spm01.dto.ProductVO">
+		select * from(select * from (select rownum as rn, p. * from
+		((select * from product where name like '%'||#{param2}||'%' order by pseq desc) p))
+		where rn&gt;=#{param1.startNum}) where rn&lt;=#{param1.endNum}
+	</select>
+	
+	<select id="getAllCount" resultType="_int">
+		select count(*) as count from ${param1} where ${param2} like '%'||#{param3}||'%' 
+	</select>
+	
+	<insert id="insertProduct" parameterType="com.ezen.spm01.dto.ProductVO">
+		insert into product(pseq, kind, content, name, price1, price2, price3, image)
+		values(product_seq.nextVal, #{kind}, #{content}, #{name}, #{price1}, #{price2}, #{price3}, #{image})
+	</insert>
+	
+	<update id="updateProduct">
+		update from product
+	</update>
 </mapper>
